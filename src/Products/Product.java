@@ -33,7 +33,6 @@ public class Product {
     public void setWeight(double weight) {
         this.weight = weight;
     }
-
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -49,6 +48,6 @@ public class Product {
 
     @Override
     public String toString() {
-        return "*"+ name + " цена " + cost + " рублей за " + weight + " кг." + "\n";
+        return name + " цена " + cost + " рублей за " + weight + " кг." + "\n";
     }
 }
