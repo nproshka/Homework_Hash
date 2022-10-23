@@ -109,9 +109,48 @@ public class Main {
         exercise3.addToMap("A", 9);
         System.out.println(exercise3);
 
+
+        Map<String, List<Integer>> exercise1 = new HashMap<>();
+        exercise1.put("Первое", new ArrayList<>(List.of(getRandomNum(), getRandomNum(), getRandomNum())));
+        exercise1.put("Второе", new ArrayList<>(List.of(getRandomNum(), getRandomNum(), getRandomNum())));
+        exercise1.put("Третье", new ArrayList<>(List.of(getRandomNum(), getRandomNum(), getRandomNum())));
+
+        Map<String, Integer> exercise1Copy = new HashMap<>();
+
+        for (Map.Entry<String, List<Integer>> entry : exercise1.entrySet()) {
+            exercise1Copy.put(entry.getKey(), takeSumOfList(entry.getValue()));
+        }
+
+        System.out.println(exercise1);
+        System.out.println(exercise1Copy);
+
+        Map<Integer, String> exercise2 = new HashMap<>();
+        exercise2.put(1, "Один");
+        exercise2.put(2, "Два");
+        exercise2.put(3, "Три");
+        exercise2.put(4, "Четрые");
+        exercise2.put(5, "Пять");
+        exercise2.put(6, "Шесть");
+
+        for (Map.Entry<Integer, String> entry : exercise2.entrySet()) {
+            System.out.println(entry);
+        }
+
+
+
+
     }
 
     public static int getRandomNum() {
         return (int) (Math.random() * 1001);
+    }
+
+    public static int takeSumOfList (List<Integer> integers) {
+        int sum = 0;
+        for (Integer arrayList : integers ) {
+            sum = sum + arrayList;
+        }
+
+        return sum;
     }
 }
