@@ -1,40 +1,48 @@
 package Products;
 
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
+import java.util.*;
+import java.util.Map.Entry;
 
 public class Recipe {
 
-    private final Set<Product> products = new HashSet<>();
-    private final int sumCost;
+    private final Map<Product, Double> products = new HashMap<>();
+    private final double sumCost;
     private final String name;
 
-    public Recipe(Set<Product> products, String name) {
-        this.products.addAll(products);
+    public Recipe(Map<Product, Double> products, String name) {
+        this.products.putAll(products);
         this.sumCost = findRecipeSumCost(products);
         this.name = name;
     }
 
-    public Set<Product> getProducts() {
+    public Map<Product, Double> getProducts() {
         return products;
     }
 
-    public int getSumCost() {
+    public double getSumCost() {
         return sumCost;
     }
 
     public String getName() {
         return name;
     }
+    public String getInfoProduct() {
+        StringBuilder builder = new StringBuilder();
+        for (Entry<Product, Double> entry : products.entrySet()) {
+            builder.append(entry.getKey()).append("Нам необходимо ");
+            builder.append(entry.getValue()).append(" кг.\n");
+        }
+        return builder.toString();
+    }
 
-    public int findRecipeSumCost(Set<Product> products) {
-        int sum = 0;
-        for (Product product1: products) {
-            sum = sum + product1.getCost();
+    public double findRecipeSumCost(Map<Product, Double> products) {
+        double sum = 0.0;
+        for (Entry<Product, Double> entry : products.entrySet()) {
+            sum = sum + entry.getKey().getCost() * entry.getValue();
         }
         return sum;
     }
+
 
     @Override
     public boolean equals(Object o) {
@@ -51,6 +59,6 @@ public class Recipe {
 
     @Override
     public String toString() {
-        return name + ". В состав блюда входят:" + "\n" + products + "Цена блюда оставляет - " + sumCost + " рублей." + "\n" + "\n";
+        return name + ". В состав блюда входят:" + "\n" + getInfoProduct() + "Цена блюда оставляет - " + sumCost + " рублей." + "\n" + "\n";
     }
 }

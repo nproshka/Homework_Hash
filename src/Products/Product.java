@@ -48,6 +48,6 @@ public class Product {
 
     @Override
     public String toString() {
-        return name + " цена " + cost + " рублей за " + weight + " кг." + "\n";
+        return name + " цена " + cost + " рублей за " + weight + " кг. ";
     }
 }
