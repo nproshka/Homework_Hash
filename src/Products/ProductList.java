@@ -15,15 +15,11 @@ public class ProductList {
 
     public void addProduct(Product product) {
 
-        try {
             if (!productList.contains(product)) {
                 productList.add(product);
-            } else if (product.hashCode() == productList.hashCode()) {
+            } else {
                 throw new RuntimeException(product.getName() + " уже есть в списке покупок");
             }
-        } catch (RuntimeException e) {
-            System.out.println(e.getMessage());
-        }
 
     }
 

@@ -22,7 +22,7 @@ public class Main {
         ProductList productList = new ProductList(new HashSet<>());
 
         productList.addProduct(tomato);
-        productList.addProduct(tomato);
+//        productList.addProduct(tomato);
         productList.addProduct(cucumber);
         productList.addProduct(salt);
         productList.addProduct(sourCream);
@@ -57,7 +57,7 @@ public class Main {
         BookOfRecipes firstBookOfRecipes = new BookOfRecipes(new HashSet<>());
 
         firstBookOfRecipes.addRecipe(salad);
-        firstBookOfRecipes.addRecipe(salad);
+//        firstBookOfRecipes.addRecipe(salad);
         firstBookOfRecipes.addRecipe(salad2);
         firstBookOfRecipes.addRecipe(soup);
 

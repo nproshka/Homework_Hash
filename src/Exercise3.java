@@ -18,9 +18,9 @@ public class Exercise3 {
 
     public void addToMap(String s, Integer i) throws RuntimeException {
 
-        if (map.containsKey(s) && map.containsValue(i)) {
+        if (map.containsKey(s) && map.get(s).equals(i)) {
             throw new RuntimeException("Такие значения уже есть в коллекции!");
-        } else if (map.containsKey(s) && !map.containsValue(i)) {
+        } else if (map.containsKey(s) && !map.get(s).equals(i)) {
             map.put(s, i);
         } else {
             map.put(s, i);

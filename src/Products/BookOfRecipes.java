@@ -14,15 +14,11 @@ public class BookOfRecipes {
 
     public void addRecipe(Recipe recipe) {
 
-        try {
             if (!bookOfRecipes.contains(recipe)) {
                 bookOfRecipes.add(recipe);
-            } else if (recipe.hashCode() == bookOfRecipes.hashCode()) {
+            } else {
                 throw new RuntimeException(recipe.getName() + " уже есть в книге рецептов");
             }
-        } catch (RuntimeException e) {
-            System.out.println(e.getMessage());
-        }
 
     }
 
